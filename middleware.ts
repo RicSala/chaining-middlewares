@@ -1,5 +1,8 @@
 import { chain } from '@/middlewares/chain';
 import { withAuthMiddleware } from '@/middlewares/withAuth';
+import { withCookieLoggerBuilder } from '@/middlewares/withCookieLogger';
+import { withCookies } from '@/middlewares/withCookies';
+import { withHeaders } from '@/middlewares/withHeaders';
 import { withI18nMiddleware } from '@/middlewares/withIntl';
 import { withLoggerMiddleware } from '@/middlewares/withLoggerMiddleware';
 import {
@@ -17,9 +20,12 @@ const intlMiddleware = createMiddleware({
     pathnames,
 });
 export default chain([
-    withAuthMiddleware as any,
-    withI18nMiddleware,
+    withAuthMiddleware,
+    withHeaders,
+    withCookies,
+    withCookieLoggerBuilder('RicCookie'),
     withLoggerMiddleware,
+    withI18nMiddleware,
 ]);
 
 export const config = {

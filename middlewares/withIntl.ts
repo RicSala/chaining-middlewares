@@ -27,6 +27,33 @@ export function withI18nMiddleware(middleware: CustomMiddleware) {
 
         const intlResponse = intlMiddleware(request);
 
-        return middleware(request, event, intlResponse);
+        const mergedResponse = mergeResponses(response, intlResponse);
+
+        return middleware(request, event, mergedResponse);
     };
+}
+
+function mergeResponses(
+    original: NextResponse | undefined,
+    intl: NextResponse
+): NextResponse {
+    // Start with the intl response
+    const mergedResponse = intl;
+    if (!original) return intl;
+
+    // Copy headers from the original response, but don't overwrite existing ones
+    original.headers.forEach((value, key) => {
+        if (!mergedResponse.headers.has(key)) {
+            mergedResponse.headers.set(key, value);
+        }
+    });
+
+    // Copy cookies from the original response
+    original.cookies.getAll().forEach((cookie) => {
+        if (!mergedResponse.cookies.has(cookie.name)) {
+            mergedResponse.cookies.set(cookie.name, cookie.value);
+        }
+    });
+
+    return mergedResponse;
 }

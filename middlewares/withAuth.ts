@@ -24,26 +24,29 @@ export function withAuthMiddleware(middleware: CustomMiddleware) {
             return middleware(request, event, response); // intMiddleware returns a response, so it must be the last middleware
         }
         return (
-            withAuth(
-                // Note that this callback is only invoked if
-                // the `authorized` callback has returned `true`
-                // and not for pages listed in `pages`.
-                (req) => middleware(req, event, response),
+            // `withAuth` augments your `Request` with the user's token.
+            (
+                withAuth(
+                    // Note that this callback is only invoked if
+                    // the `authorized` callback has returned `true`
+                    // and not for pages listed in `pages`.
+                    (req) => middleware(req, event, response),
 
-                {
-                    // Matches the pages config in `[...nextauth]`
-                    callbacks: {
-                        async authorized({ req, token }) {
-                            return token ? true : false;
+                    {
+                        // Matches the pages config in `[...nextauth]`
+                        callbacks: {
+                            async authorized({ req, token }) {
+                                return token ? true : false;
+                            },
                         },
-                    },
-                    pages: {
-                        signIn: '/auth/signin',
-                        error: '/auth/error',
-                    },
-                }
-            ) as any
-        )(request, event);
+                        pages: {
+                            signIn: '/auth/signin',
+                            error: '/auth/error',
+                        },
+                    }
+                ) as any
+            )(request, event)
+        );
     };
 }
 

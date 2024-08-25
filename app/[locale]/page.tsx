@@ -4,6 +4,7 @@ import { headers } from 'next/headers';
 
 export default async function Home() {
     const headerValues = Array.from(headers().values());
+    console.log({ headerValues });
 
     const t = await getTranslations();
     return (
