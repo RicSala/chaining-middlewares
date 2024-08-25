@@ -1,0 +1,73 @@
+{
+    "HomePage": {
+        "title": "Bonjour le monde!"
+    },
+    "localeSwitcher": {
+        "switcherLabel": "Changer de langue",
+        "locale": "{locale, select, es {🇪🇸  Espagnol} en {🇺🇸  Anglais} it {🇮🇹  Italien} fr {🇫🇷  Français} de {🇩🇪  Allemand}  other {Inconnu}}",
+        "en": "Anglais",
+        "es": "Espagnol",
+        "it": "Italien",
+        "fr": "Français",
+        "de": "Allemand"
+    },
+
+    "AppPage": {
+        "Selecciona una tarea": "Sélectionnez une tâche",
+        "¿Qué quieres hacer hoy?": "Que voulez-vous faire aujourd'hui ?"
+    },
+    "BoldFormatter": {
+        "Formatea tu post de LinkedIn": "Formatez votre publication LinkedIn",
+        "Negrita en Linkedin": "Gras sur LinkedIn",
+        "Formatea tu post the Linkedin y destaca tu contenido en el feed": "Formatez votre publication sur LinkedIn et mettez en valeur votre contenu dans le fil d'actualité",
+        "<subtitle>¿Cómo poner negrita en Linkedin?</subtitle>": "<subtitle>Comment mettre en gras sur LinkedIn ?</subtitle>",
+        "breadcrumb": {
+            "home": "Accueil",
+            "bold-in-linkedin": "Gras sur LinkedIn"
+        },
+        "formats": {
+            "bold": "Gras",
+            "italic": "Italique",
+            "bold-italic": "Gras et Italique",
+            "underline": "Souligné",
+            "strikethrough": "Barré",
+            "circled": "Encerclé",
+            "squared": "Encadré",
+            "inverted": "Inversé"
+        },
+        "text-copied": "Texte copié dans le presse-papiers",
+        "no-text-to-copy": "Aucun texte à copier",
+        "meta-data": {
+            "title": "Gras sur LinkedIn - Formatez votre publication LinkedIn",
+            "description": "Formatez votre publication LinkedIn et mettez en valeur votre contenu dans le fil d'actualité. Texte en gras, italique, souligné, barré, encerclé, encadré, inversé."
+        }
+    },
+    "home": {
+        "menu": {
+            "try-it": "Essayez",
+            "how-it-works": "Comment ça marche",
+            "prices": "Tarifs",
+            "see-demo": "Voir la démo",
+            "faq": "FAQ",
+            "blog": "Blog",
+            "go-to-app": "Aller à l'application",
+            "get-App": "Obtenir "
+        }
+    },
+    "footer": {
+        "Tu herramienta de creación de contenido para Linkedin": "Votre outil de création de contenu pour LinkedIn",
+        "Aviso Legal": "Mentions légales",
+        "Condiciones de Venta": "Conditions de vente",
+        "Política de Cookies": "Politique de cookies",
+        "Estamos Contratando": "Nous recrutons",
+        "Creador de Logos": "Créateur de logos",
+        "Negrita en Linkedin": "Gras sur LinkedIn",
+        "Blog": "Blog",
+        "Soporte": "Support",
+        "Afiliados": "Affiliés",
+        "Links": "Liens",
+        "Recursos Gratis": "Ressources gratuites",
+        "Contacto": "Contact",
+        "Síguenos en": "Suivez-nous sur"
+    }
+}

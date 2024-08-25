@@ -1,0 +1,72 @@
+{
+    "HomePage": {
+        "title": "Hola mundo!"
+    },
+    "localeSwitcher": {
+        "switcherLabel": "Cambiar idioma",
+        "locale": "{locale, select, es {🇪🇸  Español} en {🇺🇸  Inglés} it {🇮🇹  Italiano}  fr {🇫🇷  Francés} de {🇩🇪  Aleman} other {Unknown}}",
+        "en": "Inglés",
+        "es": "Español",
+        "it": "Italiano",
+        "fr": "Francés",
+        "de": "Alemán"
+    },
+    "AppPage": {
+        "Selecciona una tarea": "Selecciona una tarea",
+        "¿Qué quieres hacer hoy?": "¿Qué quieres hacer hoy?"
+    },
+    "BoldFormatter": {
+        "Formatea tu post de LinkedIn": "Formatea tu post de LinkedIn",
+        "Negrita en Linkedin": "Negrita en Linkedin",
+        "Formatea tu post the Linkedin y destaca tu contenido en el feed": "Formatea tu post the Linkedin y destaca tu contenido en el feed",
+        "<h2 className='text-lg font-semibold'>¿Cómo poner negrita en Linkedin?</h2>": "<h2 className='text-lg font-semibold'>¿Cómo poner negrita en Linkedin?</h2>",
+        "breadcrumb": {
+            "home": "Inicio",
+            "bold-in-linkedin": "Negrita en Linkedin"
+        },
+        "formats": {
+            "bold": "Negrita",
+            "italic": "Cursiva",
+            "bold-italic": "Negrita y Cursiva",
+            "underline": "Subrayado",
+            "strikethrough": "Tachado",
+            "circled": "En Círculo",
+            "squared": "En Cuadrado",
+            "inverted": "Invertido"
+        },
+        "text-copied": "Texto copiado al portapapeles",
+        "no-text-to-copy": "No hay texto para copiar",
+        "meta-data": {
+            "title": "Negrita en Linkedin - Formatea tu post de LinkedIn",
+            "description": "Formatea tu post de LinkedIn y destaca tu contenido en el feed. Texto en negrita, cursiva, subrayado, tachado, en círculo, en cuadrado, invertido."
+        }
+    },
+    "home": {
+        "menu": {
+            "try-it": "Pruébalo",
+            "how-it-works": "Cómo funciona",
+            "prices": "Precios",
+            "see-demo": "Ver demo",
+            "faq": "Preguntas frecuentes",
+            "blog": "Blog",
+            "go-to-app": "Ir a App",
+            "get-App": "Consigue "
+        }
+    },
+    "footer": {
+        "Tu herramienta de creación de contenido para Linkedin": "Tu herramienta de creación de contenido para Linkedin",
+        "Aviso Legal": "Aviso Legal",
+        "Condiciones de Venta": "Condiciones de Venta",
+        "Política de Cookies": "Política de Cookies",
+        "Estamos Contratando": "Estamos Contrantando",
+        "Creador de Logos": "Creador de Logos",
+        "Negrita en Linkedin": "Negrita en Linkedin",
+        "Blog": "Blog",
+        "Soporte": "Soporte",
+        "Afiliados": "Afiliados",
+        "Links": "Links",
+        "Recursos Gratis": "Recursos Gratis",
+        "Contacto": "Contacto",
+        "Síguenos en": "Síguenos en"
+    }
+}

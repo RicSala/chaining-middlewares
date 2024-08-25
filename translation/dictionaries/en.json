@@ -1,0 +1,72 @@
+{
+    "HomePage": {
+        "title": "Hello world!"
+    },
+    "localeSwitcher": {
+        "switcherLabel": "Switch language",
+        "locale": "{locale, select, es {🇪🇸  Spanish} en {🇺🇸  English} it {🇮🇹  Italian}  fr {🇫🇷  French} de {🇩🇪  German} other {Unknown}}",
+        "en": "English",
+        "es": "Spanish",
+        "it": "Italian",
+        "fr": "French",
+        "de": "German"
+    },
+    "AppPage": {
+        "Selecciona una tarea": "Select a task",
+        "¿Qué quieres hacer hoy?": "What do you want to do today?"
+    },
+    "BoldFormatter": {
+        "Formatea tu post de LinkedIn": "Format your LinkedIn post",
+        "Negrita en Linkedin": "Bold in Linkedin",
+        "Formatea tu post the Linkedin y destaca tu contenido en el feed": "Format your post on Linkedin and highlight your content in the feed",
+        "<subtitle>¿Cómo poner negrita en Linkedin?</subtitle>": "<subtitle>¿Cómo poner negrita en Linkedin?</subtitle>",
+        "breadcrumb": {
+            "home": "Home",
+            "bold-in-linkedin": "Bold in Linkedin"
+        },
+        "formats": {
+            "bold": "Bold",
+            "italic": "Italic",
+            "bold-italic": "Bold and Italic",
+            "underline": "Underline",
+            "strikethrough": "Strikethrough",
+            "circled": "Circled",
+            "squared": "Squared",
+            "inverted": "Inverted"
+        },
+        "text-copied": "Text copied to clipboard",
+        "no-text-to-copy": "There is no text to copy",
+        "meta-data": {
+            "title": "Bold in Linkedin - Format your Linkedin post",
+            "description": "Format your Linkedin post and highlight your content in the feed. Bold, italic, underlined, strikethrough, circled, squared, inverted text."
+        }
+    },
+    "home": {
+        "menu": {
+            "try-it": "Try it",
+            "how-it-works": "How it works",
+            "prices": "Prices",
+            "see-demo": "See demo",
+            "faq": "FAQ",
+            "blog": "Blog",
+            "go-to-app": "Go to app",
+            "get-App": "Get "
+        }
+    },
+    "footer": {
+        "Tu herramienta de creación de contenido para Linkedin": "Your content creation tool for Linkedin",
+        "Aviso Legal": "Legal Notice",
+        "Condiciones de Venta": "Sales Conditions",
+        "Política de Cookies": "Cookie Policy",
+        "Estamos Contratando": "We are hiring",
+        "Creador de Logos": "Logo Maker",
+        "Negrita en Linkedin": "Bold in Linkedin",
+        "Blog": "Blog",
+        "Soporte": "Support",
+        "Afiliados": "Affiliates",
+        "Links": "Links",
+        "Recursos Gratis": "Free Resources",
+        "Contacto": "Contact",
+        "Síguenos en": "Follow us on"
+    }
+}

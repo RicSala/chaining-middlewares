@@ -1,0 +1,73 @@
+{
+    "HomePage": {
+        "title": "Hallo Welt!"
+    },
+
+    "localeSwitcher": {
+        "switcherLabel": "",
+        "locale": "{locale, select, es {🇪🇸  Spanisch} en {🇺🇸  Englisch} it {🇮🇹  Italienisch} fr {🇫🇷  Französisch} de {🇩🇪  Deutsch} other {Unbekannt}}",
+        "en": "Englisch",
+        "es": "Spanisch",
+        "it": "Italienisch",
+        "fr": "Französisch",
+        "de": "Deutsch"
+    },
+    "AppPage": {
+        "Selecciona una tarea": "Wählen Sie eine Aufgabe",
+        "¿Qué quieres hacer hoy?": "Was möchten Sie heute machen?"
+    },
+    "BoldFormatter": {
+        "Formatea tu post de LinkedIn": "Formatieren Sie Ihren LinkedIn-Beitrag",
+        "Negrita en Linkedin": "Fettschrift auf LinkedIn",
+        "Formatea tu post the Linkedin y destaca tu contenido en el feed": "Formatieren Sie Ihren LinkedIn-Beitrag und heben Sie Ihren Inhalt im Feed hervor",
+        "<subtitle>¿Cómo poner negrita en Linkedin?</subtitle>": "<subtitle>Wie setzt man Text auf LinkedIn fett?</subtitle>",
+        "breadcrumb": {
+            "home": "Startseite",
+            "bold-in-linkedin": "Fettschrift auf LinkedIn"
+        },
+        "formats": {
+            "bold": "Fett",
+            "italic": "Kursiv",
+            "bold-italic": "Fett und Kursiv",
+            "underline": "Unterstrichen",
+            "strikethrough": "Durchgestrichen",
+            "circled": "Eingekreist",
+            "squared": "Quadratisch",
+            "inverted": "Invertiert"
+        },
+        "text-copied": "Text in die Zwischenablage kopiert",
+        "no-text-to-copy": "Es gibt keinen Text zum Kopieren",
+        "meta-data": {
+            "title": "Fettschrift auf LinkedIn - Formatieren Sie Ihren LinkedIn-Beitrag",
+            "description": "Formatieren Sie Ihren LinkedIn-Beitrag und heben Sie Ihren Inhalt im Feed hervor. Fetter, kursiver, unterstrichener, durchgestrichener, eingekreister, quadratischer, invertierter Text."
+        }
+    },
+    "home": {
+        "menu": {
+            "try-it": "Ausprobieren",
+            "how-it-works": "Wie es funktioniert",
+            "prices": "Preise",
+            "see-demo": "Demo ansehen",
+            "faq": "FAQ",
+            "blog": "Blog",
+            "go-to-app": "Zur App",
+            "get-App": "Holen Sie sich "
+        }
+    },
+    "footer": {
+        "Tu herramienta de creación de contenido para Linkedin": "Ihr Tool zur Erstellung von Inhalten für LinkedIn",
+        "Aviso Legal": "Rechtliche Hinweise",
+        "Condiciones de Venta": "Verkaufsbedingungen",
+        "Política de Cookies": "Cookie-Richtlinie",
+        "Estamos Contratando": "Wir stellen ein",
+        "Creador de Logos": "Logo-Ersteller",
+        "Negrita en Linkedin": "Fettschrift auf LinkedIn",
+        "Blog": "Blog",
+        "Soporte": "Support",
+        "Afiliados": "Partner",
+        "Links": "Links",
+        "Recursos Gratis": "Kostenlose Ressourcen",
+        "Contacto": "Kontakt",
+        "Síguenos en": "Folgen Sie uns auf"
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "HomePage": {
+        "title": "Ciao mondo!"
+    },
+    "localeSwitcher": {
+        "switcherLabel": "Cambia lingua",
+        "locale": "{locale, select, es {🇪🇸  Spanish} en {🇺🇸  English} it {🇮🇹  Italianno}  fr {🇫🇷  Francese}  de {🇩🇪  Tedesco} other {Unknown}}",
+        "en": "Inglese",
+        "es": "Spagnolo",
+        "it": "Italiano",
+        "fr": "Francese",
+        "de": "Tedesco"
+    },
+    "AppPage": {
+        "Selecciona una tarea": "Seleziona un'attività",
+        "¿Qué quieres hacer hoy?": "Cosa vuoi fare oggi?"
+    },
+    "BoldFormatter": {
+        "Formatea tu post de LinkedIn": "Formatta il tuo post di LinkedIn",
+        "Negrita en Linkedin": "Grassetto su LinkedIn",
+        "Formatea tu post the Linkedin y destaca tu contenido en el feed": "Formatta il tuo post su LinkedIn e metti in evidenza il tuo contenuto nel feed",
+        "<subtitle>¿Cómo poner negrita en Linkedin?</subtitle>": "<subtitle>Come usare il grassetto su LinkedIn?</subtitle>",
+        "breadcrumb": {
+            "home": "Home",
+            "bold-in-linkedin": "Grassetto su LinkedIn"
+        },
+        "formats": {
+            "bold": "Grassetto",
+            "italic": "Corsivo",
+            "bold-italic": "Grassetto e Corsivo",
+            "underline": "Sottolineato",
+            "strikethrough": "Barrato",
+            "circled": "In Cerchio",
+            "squared": "In Quadrato",
+            "inverted": "Invertito"
+        },
+        "text-copied": "Testo copiato negli appunti",
+        "no-text-to-copy": "Nessun testo da copiare",
+        "meta-data": {
+            "title": "Grassetto su LinkedIn - Formatta il tuo post di LinkedIn",
+            "description": "Formatta il tuo post di LinkedIn e metti in evidenza il tuo contenuto nel feed. Testo in grassetto, corsivo, sottolineato, barrato, in cerchio, in quadrato, invertito."
+        }
+    },
+    "home": {
+        "menu": {
+            "try-it": "Provalo",
+            "how-it-works": "Come funziona",
+            "prices": "Prezzi",
+            "see-demo": "Vedi demo",
+            "faq": "FAQ",
+            "blog": "Blog",
+            "go-to-app": "Vai all'app",
+            "get-App": "Ottieni "
+        }
+    },
+    "footer": {
+        "Tu herramienta de creación de contenido para Linkedin": "Il tuo strumento di creazione di contenuti per LinkedIn",
+        "Aviso Legal": "Note legali",
+        "Condiciones de Venta": "Condizioni di vendita",
+        "Política de Cookies": "Politica dei cookie",
+        "Estamos Contratando": "Stiamo assumendo",
+        "Creador de Logos": "Creatore di loghi",
+        "Negrita en Linkedin": "Grassetto su LinkedIn",
+        "Blog": "Blog",
+        "Soporte": "Supporto",
+        "Afiliados": "Affiliati",
+        "Links": "Collegamenti",
+        "Recursos Gratis": "Risorse gratuite",
+        "Contacto": "Contatto",
+        "Síguenos en": "Seguici su"
+    }
+}
