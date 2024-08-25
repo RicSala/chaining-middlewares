@@ -9,6 +9,8 @@ export function withLoggerMiddleware(
         event: NextFetchEvent,
         response: NextResponse
     ) => {
+        console.log('pathName from middleware', request.nextUrl.pathname);
+
         return middleware(request, event, response);
     };
 }
