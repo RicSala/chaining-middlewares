@@ -1,16 +1,3 @@
-// middlewares/chain.ts
-
-// Let's say we have three middleware factories: [A, B, C]. The call stack will look like this:
-
-// 1. chain([A, B, C], 0)
-//    2. chain([A, B, C], 1)
-//       3. chain([A, B, C], 2)
-//          4. chain([A, B, C], 3)
-//          4. Returns pass-through function
-//       3. C(pass-through)
-//    2. B(C)
-// 1. A(B(C))
-
 import { NextMiddlewareResult } from 'next/dist/server/web/types';
 import { NextResponse } from 'next/server';
 import type { NextFetchEvent, NextRequest } from 'next/server';
@@ -21,21 +8,24 @@ export type CustomMiddleware = (
     response: NextResponse
 ) => NextMiddlewareResult | Promise<NextMiddlewareResult>;
 
+// MiddlewareFactory are functions that, given a middleware, return that middleware again...
+// ...but adding some functionality before. For example, check the "withLogger"
+// Given a middleware, returns a middlware that first console.logs and then call the given middleware
 type MiddlewareFactory = (middleware: CustomMiddleware) => CustomMiddleware;
 
 export function chain(
     functions: MiddlewareFactory[],
     index = 0
 ): CustomMiddleware {
-    // Get the middleware at position index in the array
-    const current = functions[index];
-    // If there is one, call chain with the next index
+    const current = functions[index]; // the current middleware of the "queue"
+
     if (current) {
-        const next = chain(functions, index + 1);
-        return current(next); //
+        const next = chain(functions, index + 1); // The next middleware (that is comprised by all the rest, but let's "abstract" that idea)
+        return current(next); // we return current with next as argument, so current does its thing, and moves to the next
     }
 
-    // where there are not more functions to chain, return a
+    // REVIEW: We have to be careful not to use two middlewares that create response
+    // This is the last one middleware, the one that is called if nothing before shortcircuits it.
     return (
         request: NextRequest,
         event: NextFetchEvent,

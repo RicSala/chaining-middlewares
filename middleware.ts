@@ -1,87 +1,26 @@
-// From nextjs docs: "...based on the incoming request, you can modify the response by:
-// rewriting,
-// redirecting,
-// modifying the request or response headers,
-// or responding directly."
+import { chain } from '@/middlewares/chain';
+import { withAuthMiddleware } from '@/middlewares/withAuth';
+import { withI18nMiddleware } from '@/middlewares/withIntl';
+import { withLoggerMiddleware } from '@/middlewares/withLoggerMiddleware';
+import {
+    locales,
+    localePrefix,
+    defaultLocale,
+    pathnames,
+} from '@/translation/config';
+import createMiddleware from 'next-intl/middleware';
 
-import { NextRequest, NextResponse } from 'next/server';
-
-export default async function middleware(request: NextRequest) {
-    let currentRequest = request;
-    const response = await loggingMiddlware(currentRequest);
-    // NextResponse.next() returns a response, but we are not using (returning from function middleware) it here at all!
-
-    // This has not effect right now! (We will solve it in next steps). Both middlewares need access to the current request, but both need to return a response to make their job...!
-    const requestWithHeader = addRequestHeaderMiddleware(
-        currentRequest,
-        'custom-request-header',
-        'custom-request-header-value'
-    );
-
-    const responseWithHeader = await addResponseHeaderMiddleware(
-        request,
-        'custom-response-header',
-        'custom-request-header-value'
-    );
-    // Again, we are getting ANOTHER response from middleware2
-
-    // but this time let's imagine we can conditionally use it:
-    // If the condition is true, then we are returning a NR.next() call, so the req goes to our backend, modified
-    if (Math.random() < 0.5) return responseWithHeader;
-
-    // If the condition is not true, then we respond directly from the middleware
-    return NextResponse.json({ message: 'without header' });
-}
-
-async function loggingMiddlware(request: NextRequest) {
-    const url = request.url;
-    console.log({ url });
-    // we could not do this, as we are not doing anything to the response at all...
-    return NextResponse.next();
-}
-
-async function addResponseHeaderMiddleware(
-    request: NextRequest,
-    key: string,
-    value: string
-) {
-    const pathName = request.nextUrl.pathname;
-
-    // And produce a response with the new headers
-    // We are  adding the headers to the response that the backend will return
-    const response = NextResponse.next();
-    response.headers.set(key, value);
-    return response;
-}
-
-function addRequestHeaderMiddleware(
-    request: NextRequest,
-    key: string,
-    value: string
-) {
-    // Given an incoming request...
-    const newHeaders = new Headers(request.headers);
-    // Add a new header
-    newHeaders.set(key, value);
-    // And request Next to set it when creating the response
-    return NextResponse.next({
-        request: {
-            headers: newHeaders,
-        },
-    });
-    // REVIEW:
-    // NextResponse.next() does NOT directly respond to the client.
-    // Instead, it allows the request to proceed to the next middleware
-    // (if any) or to the application routes. The backend (Next.js pages or API routes) will still be hit.
-}
-
-// function addRequestHeaderMiddleware(request: NextRequest) {
-//     const newHeaders = new Headers(request.headers);
-//     newHeaders.set('X-Custom-Request-Header', 'Value');
-//     return NextResponse.next({
-//         request: { headers: newHeaders },
-//     });
-// }
+const intlMiddleware = createMiddleware({
+    locales,
+    localePrefix,
+    defaultLocale,
+    pathnames,
+});
+export default chain([
+    withAuthMiddleware as any,
+    withI18nMiddleware,
+    withLoggerMiddleware,
+]);
 
 export const config = {
     // Skip all paths that should not be internationalized
@@ -89,35 +28,3 @@ export const config = {
         '/((?!api|_next/static|_next/image|images|videos|favicon.ico|robots.txt).*)',
     ],
 };
-
-// NextResponse.json(): creates a response that will be sent directly to the client, bypassing the application routes.
-// The backend (pages or API routes) won't be hit.
-
-// (*)
-// Here we are modiying the req:
-
-// --> We are changing HOW we are calling next
-// --> In general, the call to next() modifies the req that will be passed to the BE
-// return NextResponse.next({
-//     request: {
-//         headers: newHeaders,
-//     },
-// });
-
-// Here we are modifying the res:
-//
-// --> We are adding a header to the created response
-// const response = NextResponse.next();
-// response.headers.set('customHeader', 'RicardoSala');
-// return response;
-
-// In Express, middleware indeed runs twice: once for the incoming request and once for the outgoing response. This allows you to modify both the request and the response at different stages of the request-response cycle.
-
-// Next.js middleware primarily intercepts incoming requests. It doesn't run again for the outgoing response like Express does.
-
-// So, when we do something like:
-
-// const response = NextResponse.next();
-// response.headers.set('customHeader', 'RicardoSala');
-// return response;
-// We're not actually modifying a response that has been generated by our application. Instead, we're creating instructions for Next.js on how to handle this request, including what headers should be included in the eventual response.

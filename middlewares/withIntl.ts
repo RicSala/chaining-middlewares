@@ -1,28 +1,32 @@
-import { NextRequest } from 'next/server';
-import createIntlMiddleware from 'next-intl/middleware';
-import { CustomMiddleware } from './chain';
+import { CustomMiddleware } from '@/middlewares/chain';
 import {
-    defaultLocale,
-    localePrefix,
     locales,
+    localePrefix,
+    defaultLocale,
     pathnames,
 } from '@/translation/config';
+import createMiddleware from 'next-intl/middleware';
+import { NextRequest, NextFetchEvent, NextResponse } from 'next/server';
 
-const intlMiddleware = createIntlMiddleware({
-    locales,
-    localePrefix,
-    defaultLocale,
-    pathnames,
-});
+export function withI18nMiddleware(middleware: CustomMiddleware) {
+    return async (
+        request: NextRequest,
+        event: NextFetchEvent,
+        response: NextResponse
+    ) => {
+        // do i18n stuff
+        const pathname = request.nextUrl.pathname;
+        const pathnameIsMissingLocale = false;
 
-export function withIntlMiddleware(next: CustomMiddleware): CustomMiddleware {
-    return async (request: NextRequest) => {
-        const response = await intlMiddleware(request);
+        const intlMiddleware = createMiddleware({
+            locales,
+            localePrefix,
+            defaultLocale,
+            pathnames,
+        });
 
-        if (response) {
-            return response;
-        }
+        const intlResponse = intlMiddleware(request);
 
-        return next(request);
+        return middleware(request, event, intlResponse);
     };
 }

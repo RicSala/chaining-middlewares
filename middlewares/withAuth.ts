@@ -1,56 +1,71 @@
-// middlewares/withAuthMiddleware.ts
-import { getToken } from 'next-auth/jwt';
-import { NextResponse } from 'next/server';
-import type { NextFetchEvent, NextRequest } from 'next/server';
-import { CustomMiddleware } from './chain';
+import { CustomMiddleware } from '@/middlewares/chain';
 import { withAuth } from 'next-auth/middleware';
+import { NextRequest, NextFetchEvent, NextResponse } from 'next/server';
 
-const authMiddleware = withAuth(() => NextResponse.next(), {
-    callbacks: {
-        async authorized({ req, token }) {
-            return token ? true : false;
-        },
-    },
-    pages: {
-        signIn: '/auth/signin',
-        error: '/auth/error',
-    },
-});
+const isAppgRegex = RegExp(/(\/)app(\/|$)/);
 
-export function withAuthMiddleware(
-    middleware: CustomMiddleware // Takes a middleware...
-    // ...and returns a middleware that adds some logic on top of it
-): CustomMiddleware {
-    // It's returning a function (middleware)
+// const isAuth = RegExp(/^\/auth/);
+
+const isProtectecPage = (pathname: string) => {
+    // Add here more conditions if needed
+    return isAppgRegex.test(pathname);
+    // || isAuth.test(pathname);
+};
+
+export function withAuthMiddleware(middleware: CustomMiddleware) {
     return async (
         request: NextRequest,
         event: NextFetchEvent,
         response: NextResponse
     ) => {
-        const token = await getToken({
-            req: request,
-            secret: process.env.NEXTAUTH_SECRET,
-        });
-
-        if (!token) {
-            return NextResponse.redirect(
-                new URL('/api/auth/signin', request.url)
-            );
+        if (!isProtectecPage(request.nextUrl.pathname)) {
+            console.log('path', request.nextUrl.pathname);
+            console.log('is not protected!');
+            return middleware(request, event, response); // intMiddleware returns a response, so it must be the last middleware
         }
+        return (
+            withAuth(
+                // Note that this callback is only invoked if
+                // the `authorized` callback has returned `true`
+                // and not for pages listed in `pages`.
+                (req) => middleware(req, event, response),
 
-        const authMiddleware = withAuth({
-            // Matches the pages config in `[...nextauth]`
-            callbacks: {
-                async authorized({ req, token }) {
-                    return token ? true : false;
-                },
-            },
-            pages: {
-                signIn: '/auth/signin',
-                error: '/auth/error',
-            },
-        });
-
-        return middleware(request, event, response);
+                {
+                    // Matches the pages config in `[...nextauth]`
+                    callbacks: {
+                        async authorized({ req, token }) {
+                            return token ? true : false;
+                        },
+                    },
+                    pages: {
+                        signIn: '/auth/signin',
+                        error: '/auth/error',
+                    },
+                }
+            ) as any
+        )(request, event);
     };
 }
+
+// // Create a response object to pass down the chain
+// const response = NextResponse.next();
+
+// const token = await getToken({ req: request });
+
+// // @ts-ignore
+// request.nextauth = request.nextauth || {};
+// // @ts-ignore
+// request.nextauth.token = token;
+// const pathname = request.nextUrl.pathname;
+
+// // const protectedPathsWithLocale = getProtectedRoutes(protectedPaths, [
+// //     ...i18n.locales,
+// // ]);
+
+// const protectedPathsWithLocale: any[] = [];
+
+// if (!token && protectedPathsWithLocale.includes(pathname)) {
+//     const signInUrl = new URL('/api/auth/signin', request.url);
+//     signInUrl.searchParams.set('callbackUrl', pathname);
+//     return NextResponse.redirect(signInUrl);
+// }
